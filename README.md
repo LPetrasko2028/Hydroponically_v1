@@ -3,22 +3,23 @@
 This is the launch point for the Hydroponically project. I want to try to make a simple, easy to use, and easy to understand program that can be used to control a hydroponic system.
 This is the first iteration and will be a rough draft of what I want.
 I am planning on using Deno, but the technology used may change.
+[Markdown Reference](https://www.markdownguide.org/cheat-sheet/)
 
 ## GOALS:
-- [ ] GPIO control and general raspberry pi control concepts
+1. [ ] GPIO control and general raspberry pi control concepts
     - [ ] Reading pH sensor data
     - [ ] Reading TDS sensor data
     - [ ] Reading Temperature sensor data
     - [ ] Controlling peristaltic pumps
     - [ ] Control water pump - this will be the most difficult part - CONTROLLING power from the wall socket to pump. (relay switch, residual current device, ) !!! WOO HOO !!!
     - [ ] Control lighting - Once the water pump solution is working I will be able to control the lighting.
-- [ ] Backend to control the hydroponic system
+2. [ ] Backend to control the hydroponic system
     - [ ] Watering
     - [ ] Lighting
     - [ ] Nutrient delivery
     - [ ] Temperature control
     - [ ] pH control
-- [ ] Frontend to control the hydroponic system
+3. [ ] Frontend to control the hydroponic system
     - [ ] base UI for backend functions
         - [ ] watering
         - [ ] lighting
@@ -36,7 +37,7 @@ I am planning on using Deno, but the technology used may change.
         - [ ] Layout
         - [ ] Typography
         - [ ] Icons
-- [ ] Documentation
+4. [ ] Documentation
     - [ ] User Manual
         - [ ] How to set up the hydroponic system
             - [ ] Raspberry Pi
