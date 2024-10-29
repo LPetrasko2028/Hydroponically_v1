@@ -45,11 +45,11 @@ I am planning on using Deno, but the technology used may change.
                 - [ ] Running the program
                 - [ ] Wi-Fi
             - [ ] pH sensor
-            - [ ] TDS sensor
+            - [ ] TDS(Nutrients) sensor
             - [ ] Temperature sensor
             - [ ] Water pump
             - [ ] Lighting
-            - [ ] Nutrient delivery
+            - [ ] TDS(Nutrients) control
             - [ ] Temperature control
             - [ ] pH control
         - [ ] How to use the UI
