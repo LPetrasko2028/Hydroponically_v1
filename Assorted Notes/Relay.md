@@ -8,5 +8,5 @@ The relay is a switch that can be used to control power to a device.
 
 Main **POWER STRIP** to 2 POWER STRIPS that are controlled by the relays and used to control the pump and lighting.
 
-example: ![alt text](RelayPowerstripExampleDrawing.png)
+![alt text](assets/RelayPowerstripExampleDrawing.png)
 
