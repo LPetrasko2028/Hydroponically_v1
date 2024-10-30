@@ -19,6 +19,8 @@ I am planning on using Deno, but the technology used may change.
     - [ ] Nutrient delivery
     - [ ] Temperature control
     - [ ] pH control
+    - [ ] Write variable tests for each physical component
+    - [ ] Write unit tests for each function
 3. [ ] Frontend to control the hydroponic system
     - [ ] base UI for backend functions
         - [ ] watering
@@ -26,6 +28,7 @@ I am planning on using Deno, but the technology used may change.
         - [ ] nutrient delivery
         - [ ] temperature control
         - [ ] pH control
+        - [ ] Testing for the previous items
     - [ ] Graphs for backend data
         - [ ] Watering
         - [ ] Lighting
