@@ -115,66 +115,106 @@ On/Off switching is done by LED, Light Sensors, and the relay contacts.
 - **Transient voltage suppression (TVS)** - I don't think we need to worry about this for this project.
 - **Grounding and enclosure** - 
     1. Grounding Requirements
-
         - Main Ground Types:
-
             - Protective Earth (PE) - Green/Yellow wire
             - Circuit/Signal Ground
             - Chassis Ground
-
         - Implementation:
-
             - Minimum 14 AWG copper for PE connection
             - Single point grounding to avoid loops
             - Dedicated ground bars/terminals
-            - Bond all metal parts to ground
+            - <mark>Bond all metal parts to ground--
             - Keep ground paths short and direct
-
     2. Enclosure Specifications
-
         - NEMA Ratings:
-        
             - NEMA 1: Indoor, basic protection
             - NEMA 12: Indoor, dust/drip protection
             - NEMA 4: Outdoor, waterproof
             - NEMA 4X: Outdoor, corrosion resistant
-        
         - Material Options:
-        
             - Metal: Better EMI shielding, grounding
-            - Plastic: Better isolation, no grounding needed
+            - <mark>Plastic: Better isolation, no grounding needed</mark>
             - Must be UL listed for electrical enclosures
-
     3. Required Features
-
         - Cable Entry:
-        
-            - ==Strain relief/cable glands==
+            - <mark>Strain relief/cable glands</mark>
             - Proper sizing for wire bundles
-            - ==Sealed entries for moisture protection==
-        
+            - <mark>Sealed entries for moisture protection</mark>
         - Ventilation:
-        
-            - ==If needed for heat dissipation==
+            - <mark>If needed for heat dissipation</mark>
             - Filtered vents to maintain NEMA rating
-        
         - Access:
-        
             - Hinged cover or removable panel
-            - ==Lockable for safety==
+            - <mark>Lockable for safety</mark>
             - Clear service access space
-
     4. Safety Markings/Labels
-
-        - ==High voltage warning labels==
-        - ==Ground connection points marked==
-        - <mark>==Circuit identification==</mark>
+        - <mark>High voltage warning labels</mark>
+        - <mark>Ground connection points marked</mark>
+        - <mark>Circuit identification</mark>
         - Emergency stop location (if applicable)
         - Manufacturer/rating information
 
 
-- **NEMA-rated enclosure** -
-- **UL-listed or similarly certified components** -
+- **NEMA-rated enclosure** - NEMA (National Electrical Manufacturers Association) rated enclosures and their application:
+
+    1. Common NEMA Ratings for Indoor Use
+        - NEMA 1:
+            - Basic indoor protection
+            - Prevents accidental contact
+            - No protection from liquids
+            - Typical office/clean environments
+        - NEMA 12:
+            - Dust-tight
+            - Drip-proof
+            - Protection from light splashing
+            - Good for industrial environments
+            - Used where oil/coolant might splash
+        - NEMA 4:
+            - Watertight
+            - Dust-tight
+            - Protected from directed water spray
+            - Suitable for washdown areas
+
+    2. Enclosure Requirements for 120V Relay Circuits
+        - Minimum Requirements:
+            - NEMA 1 for basic indoor use
+            - All live parts inaccessible
+            - Knockouts/holes for:
+                - Power entry
+                - Control wiring
+                - Mounting hardware
+        - Internal mounting points for:
+            - Relay modules
+            - Terminal blocks
+            - Circuit boards
+
+    3. Additional Considerations
+        - Access Requirements:
+            - Hinged door vs removable cover
+            - Tool-required access
+            - Padlock provisions
+        - Internal Layout:
+            - Separate high/low voltage areas
+            - Mounting rails (DIN rails)
+            - Wire management
+            - Component spacing
+
+    4. Installation Best Practices
+        - Mounting:
+            - Wall mount brackets
+            - Standoffs for internal components
+            - Proper orientation for ventilation
+        - Entry Points:
+            - Sealed cable glands/connectors
+            - Proper wire routing
+            - Strain relief
+        - Labeling:
+            - Voltage warnings
+            - Wire identification
+            - Emergency procedures
+
+
+- **UL-listed or similarly certified components** - UL is a global safety certification company. Tests components for safety standards. They also provide a list of approved components.
 
 ## Summary
 
