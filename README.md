@@ -11,7 +11,7 @@ I am planning on using Deno, but the technology used may change.
     - [ ] Reading TDS sensor data
     - [ ] Reading Temperature sensor data
     - [ ] Controlling peristaltic pumps
-    - [ ] Control water pump - this will be the most difficult part - CONTROLLING power from the wall socket to pump. (relay switch, residual current device, ) !!! WOO HOO !!!
+    - [ ] Control water pump - CONTROLLING power from the wall socket to pump. (relay switch) !!! WOO HOO !!!
     - [ ] Control lighting - Once the water pump solution is working I will be able to control the lighting.
 2. [ ] Backend to control the hydroponic system
     - [ ] Watering
