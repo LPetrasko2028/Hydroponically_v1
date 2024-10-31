@@ -79,8 +79,8 @@ I am planning on using Deno, but the technology used may change.
             - [ ] TDS(Nutrients) sensor
             - [ ] Temperature sensor
             - [X] Relay/Power control
-            - [ ] Water pump
-            - [ ] Lighting
+            - [X] Water pump
+            - [X] Lighting
         - [ ] Physical design and implementation
             - [ ] Raspberry Pi
             - [ ] pH sensor
