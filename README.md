@@ -72,3 +72,21 @@ I am planning on using Deno, but the technology used may change.
             - [ ] How to customize your own hydroponic system
             - [ ] How to request your added features to the project repository
             - [ ] How to contribute to the documentation
+    - [ ] Notes to show the development process
+        - [ ] Planning
+            - [ ] Raspberry Pi
+            - [ ] pH sensor
+            - [ ] TDS(Nutrients) sensor
+            - [ ] Temperature sensor
+            - [X] Relay/Power control
+            - [ ] Water pump
+            - [ ] Lighting
+        - [ ] Physical design and implementation
+            - [ ] Raspberry Pi
+            - [ ] pH sensor
+            - [ ] TDS(Nutrients) sensor
+            - [ ] Temperature sensor
+            - [ ] Relay/Power control
+            - [ ] Water pump
+            - [ ] Lighting
+        - [ ] Programming
