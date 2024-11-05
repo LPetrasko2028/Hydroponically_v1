@@ -3,10 +3,8 @@
 ## Raspberry Pi (B+, 2, 3 & Zero) GPIO Pins
 <style>
     .GPIO-Pin-Table {
-        border: 1px solid lightgrey;
-        width: 100%;
         text-align: center;
-    }
+    } 
     .GPIO-Pin-Table th {
         border: 1px solid lightgrey;
 
@@ -226,5 +224,5 @@ The sensors I bought that are the cheapest and most accessible have analog outpu
 ## Plan
 I plan to test and prototype the sensors with the arduino uno and the raspberry pi that I already have. I will then test the sensors with the arduino nano and the raspberry pi that I bought.
 
-[ ] Test the sensors with the arduino uno and the raspberry pi that I already have.
-[ ] Test the sensors with the arduino nano and the raspberry pi that I bought.
+- [ ] Test the sensors with the arduino uno and the raspberry pi that I already have.
+- [ ] Test the sensors with the arduino nano and the raspberry pi that I bought.

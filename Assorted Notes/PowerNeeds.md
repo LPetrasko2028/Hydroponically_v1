@@ -14,6 +14,7 @@
 - 3 outlets total for the mains power
 
 ## Plan 
-[ ] Complete the water pump circuit with the **POWER STRIP** and a **RELAY** to turn it on and off.
-[ ] Complete the lighting circuit with the **POWER STRIP** and a **RELAY** to turn it on and off.
-[ ] Complete the peristaltic pump circuit with the **POWER STRIP** and a **RELAY** to turn it on and off, If needed.
+
+- [ ] Complete the water pump circuit with the **POWER STRIP** and a **RELAY** to turn it on and off.
+- [ ] Complete the lighting circuit with the **POWER STRIP** and a **RELAY** to turn it on and off.
+- [ ] Complete the peristaltic pump circuit with the **POWER STRIP** and a **RELAY** to turn it on and off, If needed.
