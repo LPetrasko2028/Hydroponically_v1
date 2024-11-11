@@ -226,3 +226,77 @@ I plan to test and prototype the sensors with the arduino uno and the raspberry 
 
 - [ ] Test the sensors with the arduino uno and the raspberry pi that I already have.
 - [ ] Test the sensors with the arduino nano and the raspberry pi that I bought.
+
+## GPIO Pins needs and Count
+
+- 26 GPIO Pins (including I2C, SPI, UART, and GPIO)
+  - 18 GPIO Pins (exclusively GPIO)
+  - 5 SPI Pins
+  - 2 I2C Pins
+  - 2 UART Pins
+- 4 Power Pins
+  - 2 3V3 Pins
+  - 2 5V Pins
+- 8 Ground Pins
+
+
+### GPIO Pins Needs
+
+- 5 GPIO, 1 Power, 1 Ground Pins for Peristaltic Pump Relays
+- 2 GPIO, 1 Power, 1 Ground Pins for Timing Circuit Relays
+- 2 GPIO, 1 Power, 1 Ground Pins for TDS/EC Sensor
+- 
+
+## Pins Categories Explanation
+
+### GPIO (General Purpose Input/Output):
+
+- The most basic and versatile pins that can be programmed to be either inputs or outputs
+- Used for simple digital signals (on/off, high/low)
+- Common uses:
+
+  - Connecting LED lights
+  - Reading button presses
+  - Controlling relays
+  - Basic sensors (motion, temperature)
+
+
+
+### I2C (Inter-Integrated Circuit):
+
+- A two-wire communication protocol using SDA (data) and SCL (clock) pins
+- Allows multiple devices to be connected to the same pins (uses device addresses)
+- Slower than SPI but requires fewer pins
+- Common uses:
+
+  - LCD displays
+  - Temperature/humidity sensors
+  - Real-time clocks
+  - EEPROM memory chips
+
+
+
+### SPI (Serial Peripheral Interface):
+
+- A four-wire protocol using MOSI, MISO, SCLK, and CS pins
+- Faster than I2C but requires more pins
+- Can communicate with multiple devices using separate CS (chip select) pins
+- Common uses:
+
+  - SD cards
+  - LCD screens
+  - ADC/DAC converters
+  - High-speed sensors
+
+
+
+### UART (Universal Asynchronous Receiver-Transmitter):
+
+- Two-wire serial communication using TX (transmit) and RX (receive) pins
+- Direct point-to-point communication between two devices
+- Common uses:
+
+  - Serial console/debugging
+  - GPS modules
+  - Bluetooth modules
+  - Communication with microcontrollers
