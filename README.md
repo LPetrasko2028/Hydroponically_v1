@@ -40,7 +40,14 @@ I am planning on using Deno, but the technology used may change.
         - [ ] Layout
         - [ ] Typography
         - [ ] Icons
-4. [ ] Documentation
+4. [ ] Legal Requirements
+    - [ ] Set up business
+    - [ ] License
+    - [ ] Review Privacy Policy
+    - [ ] Review Terms of Service
+    - [ ] Code of Conduct
+    - [ ] Contributing Guidelines
+5. [ ] Documentation
     - [ ] User Manual
         - [ ] How to set up the hydroponic system
             - [ ] Raspberry Pi

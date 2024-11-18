@@ -41,11 +41,8 @@ const SystemStatus = ({ icon: Icon, label, value, unit, color = "text-blue-500" 
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Hydroponic Control System</h1>
-        <p className="text-gray-500 mt-2">System running normally</p>
-      </header>
+    <div className=" bg-gray-50 p-6">
+
 
       {/* Quick Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

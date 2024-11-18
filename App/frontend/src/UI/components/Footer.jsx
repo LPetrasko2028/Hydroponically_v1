@@ -7,6 +7,7 @@ import {
   HelpCircle,
   Database
 } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   // Get current year for copyright
@@ -29,7 +30,7 @@ const Footer = () => {
     }
 const { cpuUsage, storageUsage } = getSystemUsage();
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer className="bg-gray-300 border-t border-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-8">
           {/* Main footer content */}
@@ -145,12 +146,12 @@ const { cpuUsage, storageUsage } = getSystemUsage();
                 © {currentYear} Hydroponically. All rights reserved.
               </p>
               <div className="flex space-x-6">
-                <button className="text-gray-400 hover:text-gray-500">
+                <Link to='/privacy-policy' className="text-gray-400 hover:text-gray-500">
                   <span className="text-sm">Privacy Policy</span>
-                </button>
-                <button className="text-gray-400 hover:text-gray-500">
+                </Link>
+                <Link to='/terms-of-service' className="text-gray-400 hover:text-gray-500">
                   <span className="text-sm">Terms of Service</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
