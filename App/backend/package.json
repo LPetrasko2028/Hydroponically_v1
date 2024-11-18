@@ -1,0 +1,11 @@
+{
+  "name": "hydroponically",
+  "version": "1.0.0",
+  "description": "Backend for Hydroponically App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luke Petrasko",
+  "license": "MIT"
+}

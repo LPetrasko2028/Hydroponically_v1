@@ -1,0 +1,24 @@
+{
+  "name": "raspberrypifunctions",
+  "version": "1.0.0",
+  "description": "Raspberry Pi IO Functions for a hydroponic system",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "GPIO",
+    "raspberry",
+    "pi",
+    "IO"
+  ],
+  "author": "Luke Petrasko",
+  "license": "MIT",
+  "dependencies": {
+    "i2c-bus": "^5.2.3",
+    "onoff": "^6.0.3"
+  }
+}
