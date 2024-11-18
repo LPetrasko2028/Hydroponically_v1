@@ -19,6 +19,15 @@ const Footer = () => {
     status: "Operational"
   };
 
+  const getSystemUsage = () => {
+    console.log('Getting system usage...');
+    const systemUsage = {
+        cpuUsage: 23,
+        storageUsage: 45
+    };
+        return systemUsage;
+    }
+const { cpuUsage, storageUsage } = getSystemUsage();
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,16 +86,24 @@ const Footer = () => {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <button className="text-sm text-gray-600 hover:text-gray-900 flex items-center space-x-2">
+                  <a
+                  href='https://github.com/LPetrasko2028/Hydroponically_v1.git' 
+                  className="text-sm text-gray-600 hover:text-gray-900 flex items-center space-x-2"
+                  target='_blank'
+                  >
                     <HelpCircle className="w-4 h-4" />
                     <span>Documentation</span>
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button className="text-sm text-gray-600 hover:text-gray-900 flex items-center space-x-2">
+                  <a 
+                  href='https://github.com/LPetrasko2028/Hydroponically_v1.git' 
+                  className="text-sm text-gray-600 hover:text-gray-900 flex items-center space-x-2"
+                  target='_blank'
+                  >
                     <Github className="w-4 h-4" />
                     <span>GitHub</span>
-                  </button>
+                  </a>
                 </li>
                 <li>
                   <button className="text-sm text-gray-600 hover:text-gray-900 flex items-center space-x-2">
@@ -105,17 +122,17 @@ const Footer = () => {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">CPU Usage</span>
-                  <span className="text-sm font-medium text-gray-900">23%</span>
+                  <span className="text-sm font-medium text-gray-900">{cpuUsage}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-green-500 h-2 rounded-full" style={{ width: '23%' }}></div>
+                  <div className="bg-green-500 h-2 rounded-full" style={{ width: `${cpuUsage}%` }}></div>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">Storage</span>
-                  <span className="text-sm font-medium text-gray-900">45%</span>
+                  <span className="text-sm font-medium text-gray-900">{storageUsage}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: '45%' }}></div>
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${storageUsage}%` }}></div>
                 </div>
               </div>
             </div>
