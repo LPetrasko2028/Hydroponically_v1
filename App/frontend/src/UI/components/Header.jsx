@@ -8,14 +8,17 @@ import {
   Activity,
   Calendar,
   Database,
-  HelpCircle
+  HelpCircle,
+  Network
 } from 'lucide-react';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
+  
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -25,6 +28,12 @@ const Header = () => {
     { id: 2, message: "Scheduled maintenance due" }
   ]);
 
+  const devices = [
+    { id: 1, name: "Hydro-1", location: "Greenhouse A", status: "online", signalStrength: "high", lastSeen: "2 minutes ago", temperature: "24°C", humidity: "65%" },
+    { id: 2, name: "Hydro-2", location: "Indoor Lab", status: "offline", signalStrength: "none", lastSeen: "2 hours ago", temperature: "22°C", humidity: "60%" },
+    { id: 3, name: "Hydro-3", location: "Greenhouse B", status: "online", signalStrength: "medium", lastSeen: "Just now", temperature: "25°C", humidity: "70%" },
+    { id: 4, name: "Hydro-4", location: "Outdoor Garden", status: "warning", signalStrength: "low", lastSeen: "5 minutes ago", temperature: "26°C", humidity: "55%" }
+  ];
   const navItems = [
     { label: "Dashboard", icon: Home },
     { label: "Monitoring", icon: Activity },
@@ -71,13 +80,17 @@ const Header = () => {
 
           {/* Right side items */}
           <div className="flex items-center md:space-x-2 lg:space-x-4">
-            {/* System Status Indicator */}
+            {/* Link to network page */}
+            <Link to="/network" className="flex items-center gap-2">
+                <Network className="w-5 h-5" />
+            </Link>
+            {/* System Status Indicator and Device Selection */}
             <div className="hidden md:flex items-center">
               <span className="flex h-3 w-3 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full bg-${device.status === 'online' ? 'green' : 'red'}-400 opacity-75`}></span>
+                <span className={`relative inline-flex rounded-full h-3 w-3 bg-${device.status === 'online' ? 'green' : 'red'}-500`}></span>
               </span>
-              <span className="ml-2 text-sm text-gray-600">System Online</span>
+              <span className="ml-2 text-sm text-gray-600">{device.name}</span>
             </div>
 
             {/* Notifications */}

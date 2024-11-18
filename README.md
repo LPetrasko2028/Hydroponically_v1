@@ -47,7 +47,14 @@ I am planning on using Deno, but the technology used may change.
     - [ ] Review Terms of Service
     - [ ] Code of Conduct
     - [ ] Contributing Guidelines
-5. [ ] Documentation
+5. [ ] Network mesh of Hydroponically devices
+    - [ ] Create a network of devices by using network discovery protocols
+    - [ ] Create backend for network discovery
+    - [ ] Create frontend for network discovery
+        - [ ] Create a network map
+        - [ ] Create a device list
+        - [ ] Ability to add or remove a device to any network
+6. [ ] Documentation
     - [ ] User Manual
         - [ ] How to set up the hydroponic system
             - [ ] Raspberry Pi
