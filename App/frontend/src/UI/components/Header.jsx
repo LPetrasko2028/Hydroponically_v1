@@ -39,9 +39,15 @@ const Header = () => {
           {/* Logo and Brand */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Link to='/' className="flex items-center gap-2">
-                <img src='/Hydroponically.png' alt="Hydroponically Logo" className="w-8 h-8" />
-                <span className="ml-2 text-xl font-bold text-gray-900">Hydroponically</span>
+              <Link to="/" className="flex items-center gap-2">
+                <img
+                  src="/Hydroponically.png"
+                  alt="Hydroponically Logo"
+                  className="w-8 h-8"
+                />
+                <span className="ml-2 text-xl font-bold text-gray-900">
+                  Hydroponically
+                </span>
               </Link>
             </div>
           </div>
@@ -75,28 +81,19 @@ const Header = () => {
             </div>
 
             {/* Notifications */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="relative">
-                <Bell className="w-6 h-6 text-gray-600 hover:text-gray-900" />
-                {notifications.length > 0 && (
-                  <span className="absolute -top-1 -right-1 h-4 w-4 text-xs flex items-center justify-center bg-red-500 text-white rounded-full">
-                    {notifications.length}
-                  </span>
-                )}
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-64">
-                {notifications.map((notification) => (
-                  <DropdownMenuItem key={notification.id} className="py-2">
-                    {notification.message}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Link to="/alerts" className="relative">
+              <Bell className="w-6 h-6 text-gray-600 hover:text-gray-900" />
+              {notifications.length > 0 && (
+                <span className="absolute -top-1 -right-1 h-4 w-4 text-xs flex items-center justify-center bg-red-500 text-white rounded-full">
+                  {notifications.length}
+                </span>
+              )}
+            </Link>
 
             {/* Settings */}
-            <button className="text-gray-600 hover:text-gray-900">
+            <Link to="/settings" className="text-gray-600 hover:text-gray-900">
               <Settings className="w-6 h-6" />
-            </button>
+            </Link>
 
             {/* Help */}
             <button className="hidden md:block text-gray-600 hover:text-gray-900">

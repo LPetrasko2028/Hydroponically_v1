@@ -17,10 +17,13 @@ import {
 
 
 } from 'react-router-dom'
+import NetworkDashboard from './UI/pages/NetworkDashboard.jsx'
 
 const Scedule = React.lazy(() => import('./UI/pages/Schedule.jsx'));
 const Data = React.lazy(() => import('./UI/pages/Data.jsx'));
 const Alerts = React.lazy(() => import('./UI/pages/Alerts.jsx'));
+const Settings = React.lazy(() => import('./UI/pages/Settings.jsx'));
+
 
 const PrivacyPolicy = React.lazy(() => import('./UI/pages/PrivacyPolicy.jsx'));
 const TermsOfService = React.lazy(() => import('./UI/pages/TermsOfService.jsx'));
@@ -65,7 +68,11 @@ const router = createBrowserRouter(
     <Route path='/' element={<RootLayout />} errorElement={<ErrorLayout />}>
       <Route index element={<Home />} />
 
-      
+      <Route path='settings' element={<Settings />} />
+
+      <Route path='network' element={<NetworkDashboard />} />
+
+      <Route path='alerts' element={<Alerts />} />
       <Route path='privacy-policy' element={<PrivacyPolicy />} />
       <Route path='terms-of-service' element={<TermsOfService />} />
     </Route>

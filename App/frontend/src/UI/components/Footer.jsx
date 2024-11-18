@@ -60,10 +60,10 @@ const { cpuUsage, storageUsage } = getSystemUsage();
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <button className="text-sm text-gray-600 hover:text-gray-900 flex items-center space-x-2">
+                  <Link to='/settings' className="text-sm text-gray-600 hover:text-gray-900 flex items-center space-x-2">
                     <Settings2 className="w-4 h-4" />
                     <span>System Settings</span>
-                  </button>
+                  </Link>
                 </li>
                 <li>
                   <button className="text-sm text-gray-600 hover:text-gray-900 flex items-center space-x-2">
