@@ -1,0 +1,95 @@
+// convert GPIO pin number to BCM number
+const lookupGPIOToBCM = {
+    "ID_SDA": 512,
+    "ID_SCL": 513,
+    "GPIO2": 514,
+    "GPIO3": 515,
+    "GPIO4": 516,
+    "GPIO5": 517,
+    "GPIO6": 518,
+    "GPIO7": 519, // spi0 CS1
+    "GPIO8": 520, // spi0 CS0
+    "GPIO9": 521,
+    "GPIO10": 522,
+    "GPIO11": 523,
+    "GPIO12": 524,
+    "GPIO13": 525,
+    "GPIO14": 526,
+    "GPIO15": 527,
+    "GPIO16": 528,
+    "GPIO17": 529,
+    "GPIO18": 530,
+    "GPIO19": 531,
+    "GPIO20": 532,
+    "GPIO21": 533,
+    "GPIO22": 534,
+    "GPIO23": 535,
+    "GPIO24": 536,
+    "GPIO25": 537,
+    "GPIO26": 538,
+    "GPIO27": 539,
+    "NC": 540,
+    "LAN_RUN_BOOT": 541,
+    "CTS0": 542,
+    "RTS0": 543,
+    "TXD0": 544,
+    "RXD0": 545,
+    "SD1_CLK": 546,
+    "SD1_CMD": 547,
+    "SD1_DATA0": 548,
+    "SD1_DATA1": 549,
+    "SD1_DATA2": 550,
+    "SD1_DATA3": 551,
+    "PWM0_OUT": 552,
+    "PWM1_OUT": 553,
+    "ETH_CLK": 554,
+    "WIFI_CLK": 555,
+    "SDA0": 556,
+    "SCL0": 557,
+    "SMPS_SCL": 558,
+    "SMPS_SDA": 559,
+};
+
+// convert physical pin number to BCM number
+const lookupPhysicalToGPIO = {
+    1: "3.3V",
+    2: "5V",
+    3: "SDA0", // I2C
+    4: "5V",
+    5: "SCL0", // I2C
+    6: "GND",
+    7: "GPIO4",
+    8: "GPIO14", // UART
+    9: "GND",
+    10: "GPIO15", // UART
+    11: "GPIO17",
+    12: "GPIO18",
+    13: "GPIO27",
+    14: "GND",
+    15: "GPIO22",
+    16: "GPIO23",
+    17: "3.3V",
+    18: "GPIO24",
+    19: "GPIO10", // SPI
+    20: "GND",
+    21: "GPIO9", // SPI
+    22: "GPIO25",
+    23: "GPIO11", // SPI
+    24: "GPIO8", // SPI
+    25: "GND",
+    26: "GPIO7", // SPI
+    27: "DNC",
+    28: "DNC",
+    29: "GPIO5",
+    30: "GND",
+    31: "GPIO6",
+    32: "GPIO12",
+    33: "GPIO13",
+    34: "GND",
+    35: "GPIO19",
+    36: "GPIO16",
+    37: "GPIO26",
+    38: "GPIO20",
+    39: "GND",
+    40: "GPIO21",
+};
