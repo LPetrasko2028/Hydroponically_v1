@@ -1,5 +1,4 @@
-import Gpio from 'onoff';
-
+import { Gpio } from 'onoff';
 // Test the power circuit - turn on and off the relays
 // GPIO pins:
 //   - GPIO 6 - Water circuit relay
@@ -9,10 +8,10 @@ import Gpio from 'onoff';
 
 // Converted -> GPIO pins: 518, 525, 531, 538
 
-const WaterCircuitRelay = new Gpio.Gpio(518, 'out');
-const LightingCircuitRelay = new Gpio.Gpio(525, 'out');
-const EmptyCircuitRelay = new Gpio.Gpio(531, 'out');
-const EmptyCircuitRelay2 = new Gpio.Gpio(538, 'out');
+const WaterCircuitRelay = new Gpio(518, 'out');
+const LightingCircuitRelay = new Gpio(525, 'out');
+const EmptyCircuitRelay = new Gpio(531, 'out');
+const EmptyCircuitRelay2 = new Gpio(538, 'out');
 
 function testPowerCircuitRelays() {
     console.log('Testing power circuit relays...');
