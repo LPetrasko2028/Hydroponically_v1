@@ -1,0 +1,99 @@
+services:
+  couchdb:
+    image: couchdb:latest
+    container_name: couchdb-dev
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=strongpassword
+    volumes:
+    # initialize the database
+      #- couchdb.ini:/opt/couchdb/etc/local.d/couchdb.ini
+      - couchdb_data:/opt/couchdb/data
+    # networks:
+    #   - myapp-network
+    restart: unless-stopped
+
+
+  backend:
+    container_name: backend-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend-dev
+    environment:
+      - COUCHDB_URL=http://couchdb:5984
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=strongpassword
+    
+      # Volumes for development
+    volumes:
+      - ./backend:/usr/local/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - couchdb
+      - traefik
+    # networks:
+    #   - myapp-network
+    restart: unless-stopped
+    labels:
+      traefik.http.routers.backend.rule: Host(`localhost`) && PathPrefix(`/api`)
+      traefik.http.services.backend.loadbalancer.server.port: 3000
+
+  frontend:
+    container_name: frontend-dev
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: frontend-dev
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./frontend/*:/usr/local/app
+      - /usr/local/app/node_modules
+    # networks:
+    #   - myapp-network
+    restart: unless-stopped
+    labels:
+      traefik.http.routers.client.rule: Host(`localhost`)
+      traefik.http.services.client.loadbalancer.server.port: 5173
+      
+  traefik:
+    image: traefik:v2.11
+    container_name: traefik-dev
+    ports:
+      - "80:80"
+      - "8080:8080" # Optional, for Traefik dashboard
+    command:  
+      - "--api.insecure=true"
+      - "--providers.docker.exposedbydefault=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+    volumes:
+    #  - ./traefik.dev.yml:/etc/traefik/traefik.yml
+      - ./data/acme:/acme # For Let's Encrypt certificates
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.localhost`)"
+      - "traefik.http.routers.traefik.service=api@internal"
+    restart: unless-stopped
+    # networks:
+    #   - myapp-network
+
+  whoami:
+    image: containous/whoami
+    container_name: whoami
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami.entrypoints=web"
+
+# networks:
+#   myapp-network:
+
+volumes:
+  couchdb_data:

@@ -1,0 +1,33 @@
+traefik:
+    image: traefik:v2.11
+    container_name: traefik-dev
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080" # Optional, for Traefik dashboard
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./data/acme:/acme # For Let's Encrypt certificates
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik-secure.entrypoints=websecure"
+      - "traefik.http.routers.traefik-secure.rule=Host(`Hydroponically.local.com`)" # Replace with your domain
+      - "traefik.http.routers.traefik-secure.service=api@internal"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=myresolver"
+    restart: unless-stopped
+    networks:
+      - myapp-network
+
+  whoami:
+    image: traefik/whoami
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.example.com`)" # Replace with your domain
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls=true"
+      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+    restart: unless-stopped
+    networks:
+      - myapp-network

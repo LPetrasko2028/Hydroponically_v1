@@ -24,11 +24,11 @@ const Footer = () => {
     console.log('Getting system usage...');
     const systemUsage = {
         cpuUsage: 23,
-        storageUsage: 45
+        memoryUsage: 45
     };
         return systemUsage;
     }
-const { cpuUsage, storageUsage } = getSystemUsage();
+const { cpuUsage, memoryUsage } = getSystemUsage();
   return (
     <footer className="bg-gray-300 border-t border-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -129,11 +129,11 @@ const { cpuUsage, storageUsage } = getSystemUsage();
                   <div className="bg-green-500 h-2 rounded-full" style={{ width: `${cpuUsage}%` }}></div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Storage</span>
-                  <span className="text-sm font-medium text-gray-900">{storageUsage}%</span>
+                  <span className="text-sm text-gray-600">Memory</span>
+                  <span className="text-sm font-medium text-gray-900">{memoryUsage}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${storageUsage}%` }}></div>
+                  <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${memoryUsage}%` }}></div>
                 </div>
               </div>
             </div>

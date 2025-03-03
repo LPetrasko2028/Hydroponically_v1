@@ -1,0 +1,13 @@
+api:
+  dashboard: true
+  insecure: true
+
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      
+providers:
+  docker:
+    exposedByDefault: true
+
