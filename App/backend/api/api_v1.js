@@ -24,157 +24,157 @@ import authenticationRouter from '../routes/authenticationRoutes.js';
 
 const api = express.Router();
 
-// Authentication Routes
-api.use('/auth', authenticationRouter);
+// // Authentication Routes
+// api.use('/auth', authenticationRouter);
 
-/** Middleware:
- * Input validation and sanitization
- * api.get('/example', [
- *     body('example').isString().isLength({ min: 3 }).isAlpha(), // validate
- *     body('name').isString().isLength({ min: 3 }).isAlpha(), // validate
- *     body('age').toInt(), // sanitize
- *  ],
- * getExample);
- */
+// /** Middleware:
+//  * Input validation and sanitization
+//  * api.get('/example', [
+//  *     body('example').isString().isLength({ min: 3 }).isAlpha(), // validate
+//  *     body('name').isString().isLength({ min: 3 }).isAlpha(), // validate
+//  *     body('age').toInt(), // sanitize
+//  *  ],
+//  * getExample);
+//  */
  
 
-// Device Routes
-api.get('/devices', getDevices);
-/** Create device instead of save device, my thoughts
- * The device object should not only be the connection that is saved and not created, but the type of device and other details like:
- * Arduino nano, ESP32, USB Camera, etc.
- */
-api.post('/devices', createDevice);
-api.put('/devices', updateDevice);
-api.delete('/devices', deleteDevice);
+// // Device Routes
+// api.get('/devices', getDevices);
+// /** Create device instead of save device, my thoughts
+//  * The device object should not only be the connection that is saved and not created, but the type of device and other details like:
+//  * Arduino nano, ESP32, USB Camera, etc.
+//  */
+// api.post('/devices', createDevice);
+// api.put('/devices', updateDevice);
+// api.delete('/devices', deleteDevice);
 
-// Network Routes
-api.get('/network', getNetwork);
-api.post('/network', createNetwork);
-api.put('/network', updateNetwork);
-api.delete('/network', deleteNetwork);
+// // Network Routes
+// api.get('/network', getNetwork);
+// api.post('/network', createNetwork);
+// api.put('/network', updateNetwork);
+// api.delete('/network', deleteNetwork);
 
-// System Routes
-api.get('/system', getSystemInfo);
-api.get('/system/status', getSystemStatus);
-api.get('/system/logs', getSystemLogs);
-api.get('/system/settings', getSystemSettings);
-api.put('/system/settings', updateSystemSettings);
+// // System Routes
+// api.get('/system', getSystemInfo);
+// api.get('/system/status', getSystemStatus);
+// api.get('/system/logs', getSystemLogs);
+// api.get('/system/settings', getSystemSettings);
+// api.put('/system/settings', updateSystemSettings);
 
-// Target Routes
-api.get('/targets', getTargets);
-api.get('/targets/:id', getTargetById);
-api.post('/targets', createTarget);
-api.put('/targets', updateTarget);
-api.delete('/targets', deleteTarget);
+// // Target Routes
+// api.get('/targets', getTargets);
+// api.get('/targets/:id', getTargetById);
+// api.post('/targets', createTarget);
+// api.put('/targets', updateTarget);
+// api.delete('/targets', deleteTarget);
 
-// System Topology Routes
-api.get('/system/topology', getSystemTopology);
-api.post('/system/topology', createSystemTopology);
-api.put('/system/topology', updateSystemTopology);
-api.delete('/system/topology', deleteSystemTopology);
+// // System Topology Routes
+// api.get('/system/topology', getSystemTopology);
+// api.post('/system/topology', createSystemTopology);
+// api.put('/system/topology', updateSystemTopology);
+// api.delete('/system/topology', deleteSystemTopology);
 
-// Sensor Routes
-api.get('/sensors', getSensors);
-api.post('/sensors', createSensor);
-api.put('/sensors', updateSensor);
-api.delete('/sensors', deleteSensor);
+// // Sensor Routes
+// api.get('/sensors', getSensors);
+// api.post('/sensors', createSensor);
+// api.put('/sensors', updateSensor);
+// api.delete('/sensors', deleteSensor);
 
-// Sensor Data Routes
-api.get('/sensors/data', getSensorData);
-api.get('/sensors/data/:sensorId', getSensorDataById);
-api.post('/sensors/data', createSensorData);
-api.put('/sensors/data', updateSensorData);
-api.delete('/sensors/data', deleteSensorData);
+// // Sensor Data Routes
+// api.get('/sensors/data', getSensorData);
+// api.get('/sensors/data/:sensorId', getSensorDataById);
+// api.post('/sensors/data', createSensorData);
+// api.put('/sensors/data', updateSensorData);
+// api.delete('/sensors/data', deleteSensorData);
 
-// Sensor Test Routes
-api.post('/sensors/test', sensorTest);
+// // Sensor Test Routes
+// api.post('/sensors/test', sensorTest);
 
-// Relay Test Routes
-api.post('/relays/test', relayTest);
+// // Relay Test Routes
+// api.post('/relays/test', relayTest);
 
-// Camera Routes
-api.post('/camera/startvideostream', startvideostream);
-api.post('/camera/stopvideostream', stopvideostream);
+// // Camera Routes
+// api.post('/camera/startvideostream', startvideostream);
+// api.post('/camera/stopvideostream', stopvideostream);
 
-api.get('/camera/defaultsettings', getCameraDefaultsettings);
-api.post('/camera/defaultsettings', updateCameraDefaultsettings);
+// api.get('/camera/defaultsettings', getCameraDefaultsettings);
+// api.post('/camera/defaultsettings', updateCameraDefaultsettings);
 
-api.get('/camera/timelapse', getCameraTimelapse);
-api.post('/camera/starttimelapse', startCameraTimelapse);
-api.post('/camera/stoptimelapse', stopCameraTimelapse);
-api.get('/camera/timelapsesettings', getCameraTimelapseSettings);
-api.post('/camera/timelapsesettings', updateCameraTimelapseSettings);
+// api.get('/camera/timelapse', getCameraTimelapse);
+// api.post('/camera/starttimelapse', startCameraTimelapse);
+// api.post('/camera/stoptimelapse', stopCameraTimelapse);
+// api.get('/camera/timelapsesettings', getCameraTimelapseSettings);
+// api.post('/camera/timelapsesettings', updateCameraTimelapseSettings);
 
-// Grow Cycle Routes
-api.get('/growcycle', getGrowCycles);
-api.get('/growcycle/current', getCurrentGrowCycle);
-api.get('/growcycle/:id', getGrowCycleById);
-api.post('/growcycle', createGrowCycle);
-api.put('/growcycle', updateGrowCycle);
-api.delete('/growcycle', deleteGrowCycle);
+// // Grow Cycle Routes
+// api.get('/growcycle', getGrowCycles);
+// api.get('/growcycle/current', getCurrentGrowCycle);
+// api.get('/growcycle/:id', getGrowCycleById);
+// api.post('/growcycle', createGrowCycle);
+// api.put('/growcycle', updateGrowCycle);
+// api.delete('/growcycle', deleteGrowCycle);
 
-/** Grow Cycle Data Type:
- *  {
- *     id: 1,
- *     name: 'Grow Cycle 1',
- *     startDate: null, // set later new Date(),
- *     endDate: null, // set later new Date(),
- *     duration: 90, // in days
- *     targets: [
- *         {
- *             name: 'pH',
- *             value: 7.5,
- *             unit: 'pH',
- *          },
- *          {
- *              name: 'tds',
- *              value: 0.5,
- *              unit: 'ppm',
- *          },
- *     ],
- *     timings: [
- *         {
- *             name: 'watering',
- *             type: 'interval',
- *             interval: 30, // in minutes
- *             duration: 1, // in minutes
- *         },
- *         {
- *             name: 'lighting',
- *             type: 'daily',
- *             startTime: '12:00',
- *             endTime: '23:00',
- *         },
- *     ],
- *     aiStages: [
- *         {
- *             name: 'seedling',
- *             data: x,
- *         },
- *         {
- *             name: 'mild vegetation',
- *             data: x,
- *         },
- *         {
- *             name: 'mature vegetation',
- *             data: x,
- *         },
- *      ],
- *  }
- * 
- */
+// /** Grow Cycle Data Type:
+//  *  {
+//  *     id: 1,
+//  *     name: 'Grow Cycle 1',
+//  *     startDate: null, // set later new Date(),
+//  *     endDate: null, // set later new Date(),
+//  *     duration: 90, // in days
+//  *     targets: [
+//  *         {
+//  *             name: 'pH',
+//  *             value: 7.5,
+//  *             unit: 'pH',
+//  *          },
+//  *          {
+//  *              name: 'tds',
+//  *              value: 0.5,
+//  *              unit: 'ppm',
+//  *          },
+//  *     ],
+//  *     timings: [
+//  *         {
+//  *             name: 'watering',
+//  *             type: 'interval',
+//  *             interval: 30, // in minutes
+//  *             duration: 1, // in minutes
+//  *         },
+//  *         {
+//  *             name: 'lighting',
+//  *             type: 'daily',
+//  *             startTime: '12:00',
+//  *             endTime: '23:00',
+//  *         },
+//  *     ],
+//  *     aiStages: [
+//  *         {
+//  *             name: 'seedling',
+//  *             data: x,
+//  *         },
+//  *         {
+//  *             name: 'mild vegetation',
+//  *             data: x,
+//  *         },
+//  *         {
+//  *             name: 'mature vegetation',
+//  *             data: x,
+//  *         },
+//  *      ],
+//  *  }
+//  * 
+//  */
 
-// Grow Cycle is the template for each grow
-// the grow data object is all of the data of running through a grow cycle
-// So you run a grow cycle and create a grow. The grow data object can be used to view previous grows and the current grow
+// // Grow Cycle is the template for each grow
+// // the grow data object is all of the data of running through a grow cycle
+// // So you run a grow cycle and create a grow. The grow data object can be used to view previous grows and the current grow
 
-// Grow Routes
-api.get('/grows', getGrows);
-api.get('/grows/current', getCurrentGrow);
-api.get('/grows/:id', getGrowById);
-api.post('/grows/start', startGrow);
-api.post('/grows/end', endGrow);
+// // Grow Routes
+// api.get('/grows', getGrows);
+// api.get('/grows/current', getCurrentGrow);
+// api.get('/grows/:id', getGrowById);
+// api.post('/grows/start', startGrow);
+// api.post('/grows/end', endGrow);
 
 
 

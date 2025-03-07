@@ -1,12 +1,13 @@
-traefik:
+services:
+  traefik:
     image: traefik:v2.11
-    container_name: traefik-dev
+    container_name: traefik-prod
     ports:
       - "80:80"
       - "443:443"
       - "8080:8080" # Optional, for Traefik dashboard
     volumes:
-      - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./traefik.prod.yml:/etc/traefik/traefik.yml
       - ./data/acme:/acme # For Let's Encrypt certificates
       - /var/run/docker.sock:/var/run/docker.sock:ro
     labels:
@@ -20,14 +21,55 @@ traefik:
     networks:
       - myapp-network
 
-  whoami:
-    image: traefik/whoami
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.example.com`)" # Replace with your domain
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls=true"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
-    restart: unless-stopped
+  couchdb:
+    image: couchdb:latest
+    container_name: couchdb-prod
+    ports:
+      - "5984:5984"
+    depends_on:
+      - traefik
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=strongpassword
+    volumes:
+    # initialize the database
+      - ./couchdb.prod.ini:/opt/couchdb/etc/local.d/couchdb.ini
+      - couchdb_data:/opt/couchdb/data
     networks:
       - myapp-network
+    restart: unless-stopped
+    labels:
+      traefik.http.routers.couchdb.rule: Host(`localhost`) && PathPrefix(`/db`)
+      traefik.http.services.couchdb.loadbalancer.server.port: 5984
+
+
+  backend:
+    container_name: backend-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend-start
+    environment:
+      - COUCHDB_URL=http://couchdb:5984
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=strongpassword
+    
+      # Volumes for development
+    volumes:
+      - ./backend:/usr/local/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - traefik
+    networks:
+      - myapp-network
+    restart: unless-stopped
+    labels:
+      traefik.http.routers.backend.rule: Host(`localhost`) && PathPrefix(`/api`)
+      traefik.http.services.backend.loadbalancer.server.port: 3000
+
+volumes:
+  couchdb_data:
+
+networks:
+  myapp-network:

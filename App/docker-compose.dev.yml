@@ -9,11 +9,15 @@ services:
       - COUCHDB_PASSWORD=strongpassword
     volumes:
     # initialize the database
-      #- couchdb.ini:/opt/couchdb/etc/local.d/couchdb.ini
+      - ./couchdb.dev.ini:/opt/couchdb/etc/local.d/couchdb.ini
       - couchdb_data:/opt/couchdb/data
-    # networks:
-    #   - myapp-network
     restart: unless-stopped
+    profiles:
+      - basicSetup
+      - fullSetup
+    labels:
+      traefik.http.routers.couchdb.rule: Host(`localhost`) && PathPrefix(`/db`)
+      traefik.http.services.couchdb.loadbalancer.server.port: 5984
 
 
   backend:
@@ -26,18 +30,32 @@ services:
       - COUCHDB_URL=http://couchdb:5984
       - COUCHDB_USER=admin
       - COUCHDB_PASSWORD=strongpassword
-    
+      - NODE_ENV=development
+
+      # For live reloading with Volumes
+      - CHOKIDAR_USEPOLLING=true
       # Volumes for development
     volumes:
       - ./backend:/usr/local/app
+    
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /usr/local/app
+          ignore:
+            - node_modules
+        - action: rebuild
+          path: ./backend/package.json
     ports:
       - "3000:3000"
     depends_on:
       - couchdb
       - traefik
-    # networks:
-    #   - myapp-network
     restart: unless-stopped
+    profiles:
+      - basicSetup
+      - fullSetup
     labels:
       traefik.http.routers.backend.rule: Host(`localhost`) && PathPrefix(`/api`)
       traefik.http.services.backend.loadbalancer.server.port: 3000
@@ -50,12 +68,28 @@ services:
       target: frontend-dev
     environment:
       - NODE_ENV=development
+
+      # For live reloading with Volumes
+      - CHOKIDAR_USEPOLLING=true
     volumes:
-      - ./frontend/*:/usr/local/app
+      # Mount the frontend directory to the container
+      - ./frontend:/usr/local/app
       - /usr/local/app/node_modules
-    # networks:
-    #   - myapp-network
+    ports:
+      - "5173:5173"
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: ./
+          ignore:
+            - node_modules
+        - action: rebuild
+          path: package.json
     restart: unless-stopped
+    profiles:
+      - basicSetup
+      - fullSetup
     labels:
       traefik.http.routers.client.rule: Host(`localhost`)
       traefik.http.services.client.loadbalancer.server.port: 5173
@@ -81,19 +115,6 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.localhost`)"
       - "traefik.http.routers.traefik.service=api@internal"
     restart: unless-stopped
-    # networks:
-    #   - myapp-network
-
-  whoami:
-    image: containous/whoami
-    container_name: whoami
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
-      - "traefik.http.routers.whoami.entrypoints=web"
-
-# networks:
-#   myapp-network:
 
 volumes:
   couchdb_data:
