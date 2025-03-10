@@ -1,5 +1,8 @@
 # Distributed System
 
+!!! Old notes: YugabyteDB ended up being overkill for this project
+I chose couchdb instead. See CouchDB Intro.md for more info !!!
+
 ## Overview
 
 Application use case
@@ -24,6 +27,4 @@ The goals I want to achieve with this database are:
 yugabytedb in a docker container separate from the app container on each raspberry pi
 
 yugabytedb is overkill switching to couchdb.
-
-
 

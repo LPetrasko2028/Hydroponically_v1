@@ -20,6 +20,7 @@ import {
 import NetworkDashboard from './UI/pages/NetworkDashboard.jsx'
 
 const Schedule = React.lazy(() => import('./UI/pages/Schedule.jsx'));
+const Monitoring = React.lazy(() => import('./UI/pages/Monitoring.jsx'));
 const Data = React.lazy(() => import('./UI/pages/Data.jsx'));
 const Alerts = React.lazy(() => import('./UI/pages/Alerts.jsx'));
 const Settings = React.lazy(() => import('./UI/pages/Settings.jsx'));
@@ -67,10 +68,13 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />} errorElement={<ErrorLayout />}>
       <Route index element={<Home />} />
+      <Route path='monitoring' element={<Monitoring />} />
 
       <Route path='schedule' element={<Schedule />} />
 
       <Route path='settings' element={<Settings />} />
+
+      <Route path='data' element={<Data />} />
 
       <Route path='network' element={<NetworkDashboard />} />
 

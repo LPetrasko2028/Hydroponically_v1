@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:20 AS base
+FROM node:22-alpine AS base
 
 # Set the working directory in the container
 WORKDIR /usr/local/app
@@ -8,7 +8,8 @@ WORKDIR /usr/local/app
 FROM base AS frontend-base
 # Copy package.json and package-lock.json to the working directory and smoke test install dependencies
 COPY ./frontend/package*.json ./
-RUN --mount=type=cache,target=/usr/local/cache/.npm npm install
+RUN npm install
+
 # [1] DO NOT COPY the frontend -- USING VOLUME instead for live reloading in dev
 # Relocating this to the build stage
 # COPY frontend/* ./
