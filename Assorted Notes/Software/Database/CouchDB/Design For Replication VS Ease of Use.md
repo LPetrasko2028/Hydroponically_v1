@@ -52,7 +52,7 @@ I can use a mix of approaches depending on the specific data, probably just 1 an
 ### Sensor Data
 
 TO DOS/Questions:
-- [ :white_check_mark: ] Do I separate the sensor readings data and sensor objects data into different databases?
+- [X] Do I separate the sensor readings data and sensor objects data into different databases?
     - Yes, I will separate them into different databases. Here is my reasoning: When the system controller needs to read sensor object data (to be able to locate and read from a sensor), it does not need to read the sensor readings data. Keeping a consistent sensor id across the two databases is essential for retrieving sensor data.
 - [ ] Do I need to use views to query sensor data?
     - Yes, I will use views to query sensor data.
@@ -62,7 +62,7 @@ I am using approach 2 for sensor data for improved performance, query-ability, a
 Example:
 Database: SensorData
 ```json
-documents: {
+"documents": {
     {
         "_id": "sensor_${SENSOR_NAME}_${TIMESTAMP}",
         "type": "sensor_reading",
@@ -100,7 +100,7 @@ documents: {
 Example:
 Database: SensorObjects
 ```json
-documents: {
+"documents": {
     {
         "_id": "sensor_temp01",
         "type": "sensor_object",

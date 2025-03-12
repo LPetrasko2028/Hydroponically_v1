@@ -6,10 +6,10 @@ I am planning on using Deno, but the technology used may change.
 [Markdown Reference](https://www.markdownguide.org/cheat-sheet/)
 
 ## GOALS:
-1. [ ] GPIO control and general raspberry pi control concepts
-    - [ ] Reading pH sensor data
-    - [ ] Reading TDS sensor data
-    - [ ] Reading Temperature sensor data
+1. [X] GPIO control and general raspberry pi control concepts
+    - [X] Reading pH sensor data
+    - [X] Reading TDS sensor data
+    - [X] Reading Temperature sensor data
     - [X] Controlling peristaltic pumps
     - [X] Control water pump - CONTROLLING power from the wall socket to pump. (relay switch) !!! WOO HOO !!!
     - [X] Control lighting - Once the water pump solution is working I will be able to control the lighting.

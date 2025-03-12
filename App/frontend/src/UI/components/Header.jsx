@@ -8,7 +8,7 @@ import {
   Activity,
   Calendar,
   Database,
-  HelpCircle,
+  User,
   Network
 } from 'lucide-react';
 import {
@@ -36,7 +36,7 @@ const Header = () => {
   ];
   const device = devices[0];
   const navItems = [
-    { label: "Dashboard", icon: Home },
+    { label: "Dashboard", icon: Home , link: "/" },
     { label: "Monitoring", icon: Activity, link: "/monitoring" },
     { label: "Schedule", icon: Calendar, link: "/schedule" },
     { label: "Data", icon: Database, link: "/data" }
@@ -129,9 +129,9 @@ const Header = () => {
             </Link>
 
             {/* Help */}
-            <button className="hidden md:block text-gray-600 hover:text-gray-900">
-              <HelpCircle className="w-6 h-6" />
-            </button>
+            <Link to="/profile" className=" text-gray-600 hover:text-gray-900">
+              <User className="w-6 h-6" />
+            </Link>
 
             {/* Mobile menu button */}
             <button

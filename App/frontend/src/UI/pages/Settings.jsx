@@ -44,7 +44,7 @@ import {
 const SettingsPage = () => {
   // Profile settings state
   const [profileSettings, setProfileSettings] = useState({
-    name: 'John Doe',
+    username: 'John Doe',
     email: 'john.doe@example.com',
     phone: '+1 (555) 123-4567',
     notifications: {
