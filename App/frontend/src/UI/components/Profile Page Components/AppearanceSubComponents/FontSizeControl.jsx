@@ -18,6 +18,7 @@ export const FontSizeProvider = ({ children }) => {
   
   // Apply font size to root element when it changes
   useEffect(() => {
+    
     document.documentElement.style.fontSize = `${fontSize}%`;
     // Store preference in localStorage
     localStorage.setItem('app-font-size', fontSize.toString());
@@ -39,7 +40,7 @@ export const FontSizeProvider = ({ children }) => {
 };
 
 // Hook to use font size in components
-export const useFontSize = () => useContext(FontSizeContext);
+const useFontSize = () => useContext(FontSizeContext);
 
 // Font size control component with multiple interaction methods
 export const FontSizeControl = () => {
@@ -50,19 +51,14 @@ export const FontSizeControl = () => {
     { value: 75, label: 'Small' },
     { value: 100, label: 'Medium' },
     { value: 125, label: 'Large' },
-    { value: 150, label: 'X-Large' }
   ];
   
   const decreaseSize = () => {
-    if (fontSize > 75) setFontSize(Math.max(75, fontSize - 25));
+    if (fontSize > 75) setFontSize(Math.max(75, fontSize - 5));
   };
   
   const increaseSize = () => {
-    if (fontSize < 200) setFontSize(Math.min(200, fontSize + 25));
-  };
-  
-  const handleSliderChange = (value) => {
-    setFontSize(value[0]);
+    if (fontSize < 150) setFontSize(Math.min(150, fontSize + 5));
   };
   
   const handleSelectChange = (value) => {
@@ -99,18 +95,6 @@ export const FontSizeControl = () => {
         >
           <PlusIcon className="w-4 h-4" />
         </Button>
-      </div>
-      
-      {/* Slider for fine-grained control */}
-      <div className="mb-4">
-        <Slider
-          value={[fontSize]}
-          min={75}
-          max={200}
-          step={5}
-          onValueChange={handleSliderChange}
-          aria-label="Adjust font size"
-        />
       </div>
       
       {/* Dropdown for preset sizes */}

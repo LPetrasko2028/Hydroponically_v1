@@ -10,19 +10,9 @@ import {
   import { Button } from '@/components/ui/button';
   
   import { Switch } from '@/components/ui/switch';
-  import { 
-    Moon, 
-    Sun, 
-  } from 'lucide-react';
-  import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from '@/components/ui/select';
-  import { ThemeProvider, ThemeSwitch } from './Darkmode';
-  import { FontSizeProvider, FontSizeControl } from "./FontSizeControl";
+ 
+  import { ThemeSwitch } from './AppearanceSubComponents/Darkmode';
+  import { FontSizeControl } from "./AppearanceSubComponents/FontSizeControl";
 
 const AppearanceComponent = () => {
   const [highContrast, setHighContrast] = useState(false);
@@ -33,21 +23,17 @@ const AppearanceComponent = () => {
         <CardTitle>Appearance Settings</CardTitle>
         <CardDescription>Customize how the app looks and feels</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span>Theme Mode</span>
           </div>
-          <ThemeProvider>
             <ThemeSwitch />
-          </ThemeProvider>
         </div>
 
         <div className="flex items-center justify-between">
           <span>Font Size</span>
-          <FontSizeProvider>
             <FontSizeControl />
-          </FontSizeProvider>
         </div>
 
         <div className="flex items-center justify-between">
