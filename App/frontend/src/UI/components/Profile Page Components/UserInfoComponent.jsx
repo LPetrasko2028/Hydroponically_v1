@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useAuthStore } from '../../../store/authStore.js';
 import { Label } from '@/components/ui/label';
 import { 
     Card, 
@@ -15,28 +16,39 @@ import {
   } from 'lucide-react';
 
 const UserInfoComponent = () => {
+  const { user, isLoading, logout } = useAuthStore();
   return (
     <div>
       <Card className="mb-6">
-        <CardHeader>
+        <CardHeader className="flex flex-row justify-between">
+          <div>
           <CardTitle>User Info</CardTitle>
           <CardDescription>Manage your account</CardDescription>
+          </div>
+
+          <Button id="logout" onClick={() => logout()} className="w-fit bg-red-500 rounded-xs">
+              Logout
+          </Button>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid gap-4">
+          <div className="grid gap-6">
+            {/* Username */}
             <div>
               <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="HydroGrower123" />
+              <p id="username" defaultValue="Username" className="font-medium">{user.name}</p>
             </div>
-
-            <div>
-              <Label htmlFor="displayName">Display Name</Label>
-              <Input id="displayName" defaultValue="Alex Johnson" />
-            </div>
-
-            <div>
-              <Label htmlFor="email">Email Address</Label>
-              <Input id="email" type="email" defaultValue="alex@example.com" />
+            
+            {/* Roles */}
+            <div className="flex flex-row justify-between">
+              <div>
+              <Label htmlFor="roles">Role(s)</Label>
+              <ul id="roles" className="font-medium">
+                {user.roles.map((role) => (
+                  <li key={role}>{role}</li>
+                ))}
+              </ul>
+              </div>
+              <Button id="editRoles" className="w-fit bg-blue-500 rounded-xs">Change Roles</Button>
             </div>
           </div>
         </CardContent>

@@ -64,22 +64,24 @@ class CouchDbAuthService {
    * @returns {Promise<Object>} - The session response
    */
   async login(username, password) {
+    // add include docs to the query
     try {
-      const response = await this.axios.post('/_session', {
+      const response = await this.axios.post("/_session", {
         name: username,
-        password: password
+        password: password,
       });
-      
+
+      console.log("response", response);
       // If successfully logged in, the response will include authentication cookie
       if (response.status === 200) {
         // Store username for future reference if needed
-        localStorage.setItem('couchdb_username', username);
+        localStorage.setItem("couchdb_username", username);
         return response.data;
       } else {
-        throw new Error('Login failed');
+        throw new Error("Login failed");
       }
     } catch (error) {
-      console.error('Login error:', error);
+      console.error("Login error:", error);
       error.message = "Login failed: " + error.message;
       throw error;
     }
@@ -113,12 +115,10 @@ class CouchDbAuthService {
       const response = await this.axios.get('/_session');
       //console.log('Session:', response.data);
       console.log('Raw response:', response);
-      console.log(response.data.userCtx.name);
-      console.log(response.data.userCtx.name === null);
       if (response.data.userCtx.name === null) {
         throw new Error('Not logged in');
       }
-      return response.data;
+      return response.data.userCtx;
     } catch (error) {
       console.error('Get session error:', error);
       

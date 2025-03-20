@@ -7,7 +7,8 @@
     "dev": "vite --host=0.0.0.0",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
@@ -32,8 +33,10 @@
     "jest": "^29.7.0",
     "lucide-react": "^0.460.0",
     "nano": "^10.1.4",
+    "patch-package": "^8.0.0",
     "path": "^0.12.7",
-    "pouchdb": "^9.0.0",
+    "pouchdb-browser": "^9.0.0",
+    "pouchdb-find": "^9.0.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",

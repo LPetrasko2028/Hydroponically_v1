@@ -11,12 +11,12 @@ import {
   
   import { Switch } from '@/components/ui/switch';
  
-  import { ThemeSwitch } from './AppearanceSubComponents/Darkmode';
+  import { ThemeSwitch } from './AppearanceSubComponents/ThemeSwitch';
   import { FontSizeControl } from "./AppearanceSubComponents/FontSizeControl";
+  import { usePreferencesStore } from '../../../store/preferencesStorePouchDB';
 
 const AppearanceComponent = () => {
-  const [highContrast, setHighContrast] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const { contrast, reducedMotion, setContrast, setReducedMotion } = usePreferencesStore();
   return (
     <Card className="mb-6">
       <CardHeader>
@@ -38,7 +38,7 @@ const AppearanceComponent = () => {
 
         <div className="flex items-center justify-between">
           <span>High Contrast Mode</span>
-          <Switch checked={highContrast} onCheckedChange={setHighContrast} />
+          <Switch checked={contrast} onCheckedChange={setContrast} />
         </div>
 
         <div className="flex items-center justify-between">

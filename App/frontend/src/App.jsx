@@ -41,6 +41,7 @@ const TermsOfService = React.lazy(() =>
 
 import Login from "./UI/pages/Login.jsx";
 import NotFound from "./UI/pages/NotFound.jsx";
+import GlobalSetup from "./UI/components/GlobalSetup.jsx";
 
 function App() {
   const { isCheckingAuth, checkAuth } = useAuthStore();
@@ -52,6 +53,7 @@ function App() {
   }
   return (
     <div>
+      <GlobalSetup />
     <BrowserRouter>
       <React.Suspense fallback={<RootLayout><LoadingSpinner /></RootLayout>}>
       <Routes>
